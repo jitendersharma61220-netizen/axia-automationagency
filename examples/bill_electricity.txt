@@ -1,0 +1,12 @@
+Sharma Electricals & Supplies
+Shop 4, Main Market, Karol Bagh, New Delhi
+GSTIN: 07ABCDE1234F1Z5
+Tax Invoice No: SE/2026/0457
+Date: 03/10/2026
+
+LED tube light 20W      x4     1,600.00
+Extension board         x1       450.00
+Sub Total                      2,050.00
+CGST 9%                          184.50
+SGST 9%                          184.50
+Grand Total              Rs   2,419.00
