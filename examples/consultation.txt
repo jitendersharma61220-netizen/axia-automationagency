@@ -1,0 +1,7 @@
+Doctor: Haan Ramesh ji, batayiye kya problem hai?
+Patient: Doctor sahab, teen din se bukhar hai, gale mein bahut dard hai, nigalne mein dikkat.
+Doctor: Khansi? Saans lene mein taklif?
+Patient: Thodi khansi hai, saans theek hai.
+Doctor: Temperature 101.2 hai. Gala dekhte hain... tonsils swollen hain, white patches hain. Pulse 92.
+Doctor: Ye bacterial tonsillitis lag raha hai. Amoxicillin 500 mg din mein teen baar, 5 din, khana khane ke baad. Paracetamol 650 jab bukhar ho, din mein 3 baar tak. Garam paani se gargle karein.
+Doctor: Agar saans mein taklif ho ya bukhar 3 din mein na utre to turant aayiye. 5 din baad dikhaiye.

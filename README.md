@@ -12,7 +12,7 @@ the agent enough to switch on auto mode.
 | `axia.sales` | Sales | Lead research, scoring, WhatsApp/email outreach, reply handling, meeting booking, follow-ups | Built |
 | `axia.marketing` | Marketing | Market research, campaign plans, content for every channel, performance analysis | Built |
 | `axia.ops` | Operations / accounts | Bill reading, PO matching, GST checks, approvals, payables | Built |
-| `axia.medical` | Clinics | Doctor-approved visit notes, lab report explainers, patient reminders | Planned |
+| `axia.medical` | Clinics | Doctor-approved visit notes, lab report explainers, patient reminders | Built |
 | `axia.hr` | HR | Resume ranking, WhatsApp screening, interview booking | Planned |
 | `axia.lead_followup` | Sales (simple) | Instant reply and timed follow-ups for every enquiry | Built |
 
@@ -154,6 +154,42 @@ python -m axia.ops ledger --out purchase_register.csv
 Company settings (GSTIN, auto-approve limit, rate tolerance, approver, vendor
 emails) are in `examples/ops_company.json`; purchase orders and goods received
 come from `examples/purchase_orders.csv` (export from your ERP or a sheet).
+
+## Clinic assistant (medical)
+
+**Who it's for:** clinics, polyclinics, diagnostic centres and small
+hospitals where doctors write notes by hand and patients get no follow-up.
+
+**What it does (the doctor approves everything before a patient sees it):**
+
+1. **Visit scribe.** From the consultation transcript (Hindi, Hinglish or
+   English), Claude drafts a SOAP note, the prescription and patient
+   instructions in the patient's language. It may only write what the doctor
+   said. Code checks the prescription against the patient's allergies
+   (including drug groups: penicillin allergy flags amoxicillin), duplicate
+   medicines, and missing dose, frequency or duration. Allergy hits alert the
+   doctor at once.
+2. **Send and remind.** On approval the prescription goes to the patient on
+   WhatsApp, and dose reminders (OD/BD/TDS/QID/HS) plus a follow-up visit
+   reminder are scheduled.
+3. **Lab reports.** Claude reads the report (PDF or photo); code recomputes
+   every flag from the reference range and alerts the doctor about critical
+   values (e.g. haemoglobin under 7, potassium over 6). Claude writes a simple
+   explanation without diagnosis, which the doctor approves before it is sent.
+
+```bash
+python -m axia.medical patient "Ramesh Kumar" 9845000000 --age 45 --sex M --allergies penicillin --language Hinglish
+python -m axia.medical visit 9845000000 examples/consultation.txt
+python -m axia.medical lab 9845000000 report.pdf
+python -m axia.medical pending
+python -m axia.medical approve 1
+python -m axia.medical reminders     # every 15 minutes from cron
+```
+
+Transcripts come from any speech-to-text app on the doctor's phone (record
+with the patient's consent). Patient data stays in the clinic's own SQLite
+file; check the clinic's data-protection obligations (DPDP Act) before going
+live, and consider a zero-data-retention agreement for the Claude API.
 
 ## Lead follow-up (simple)
 
