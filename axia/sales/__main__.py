@@ -8,10 +8,10 @@ import sys
 
 from axia.core import ai as ai_mod
 from axia.core.approvals import Approvals, Outbox, connect
-from axia.core.channels import make_channels
+from axia.core.channels import alerter, make_channels
 from axia.core.server import make_handler, serve
 
-from .agent import SalesAgent, rep_alert
+from .agent import SalesAgent
 from .store import Store
 
 
@@ -23,7 +23,8 @@ def build(db_path, playbook_path, ai=None, channels=None):
     channels = channels or make_channels()
     approvals = Approvals(conn, "sales")
     outbox = Outbox(approvals, channels, auto_send=playbook.get("auto_send", False))
-    agent = SalesAgent(store, ai, outbox, playbook, rep_alert(channels, playbook))
+    alert = alerter(channels, playbook["sales_rep"], "Sales agent alert")
+    agent = SalesAgent(store, ai, outbox, playbook, alert)
     return agent, approvals
 
 

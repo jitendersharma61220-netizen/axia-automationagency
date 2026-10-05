@@ -1,12 +1,14 @@
 Sharma Electricals & Supplies
 Shop 4, Main Market, Karol Bagh, New Delhi
-GSTIN: 07ABCDE1234F1Z5
-Tax Invoice No: SE/2026/0457
-Date: 03/10/2026
+GSTIN: 07ABCDE1234F1Z2
+Tax Invoice No: SE/2026/0457          Date: 03/10/2026
+Bill to: Sunrise Diagnostics Pvt Ltd, GSTIN 07AAKCS5678M1ZH
+Your PO: PO-1042                      Payment: 15 days
 
-LED tube light 20W      x4     1,600.00
-Extension board         x1       450.00
-Sub Total                      2,050.00
-CGST 9%                          184.50
-SGST 9%                          184.50
-Grand Total              Rs   2,419.00
+Item                    Qty   Rate      Amount
+LED tube light 20W      4     400.00    1,600.00
+Extension board         1     450.00      450.00
+Sub Total                               2,050.00
+CGST 9%                                   184.50
+SGST 9%                                   184.50
+Grand Total                       Rs    2,419.00

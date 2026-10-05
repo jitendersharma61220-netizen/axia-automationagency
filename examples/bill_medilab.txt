@@ -1,0 +1,10 @@
+MEDILAB CONSUMABLES
+Plot 22, Sector 37, Gurugram, Haryana   GSTIN 06BBBCD4321E1Z7
+Invoice # ML-88213     Invoice date 28-09-2026     Due 28-10-2026
+Customer: Sunrise Diagnostics Pvt Ltd (07AAKCS5678M1ZH)   PO Ref: PO-1043
+
+Vacutainer tubes (box of 100)   20 x 890.00  = 17,800.00
+Nitrile gloves (box of 100)     30 x 320.00  =  9,600.00
+Taxable value                                 27,400.00
+IGST 12%                                       3,288.00
+Invoice total                                 30,688.00

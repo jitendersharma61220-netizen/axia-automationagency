@@ -12,8 +12,6 @@ from datetime import datetime, timedelta, timezone
 from axia.core.ai import AIError
 from axia.core.approvals import now
 
-from .store import normalize_phone
-
 IST = timezone(timedelta(hours=5, minutes=30))
 DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
@@ -306,14 +304,3 @@ class SalesAgent:
         return {"stages": counts, "meetings": self.store.meetings(),
                 "hot_leads": [(p.name, p.score, p.stage) for p in hot]}
 
-
-def rep_alert(channels, playbook):
-    """Alerts to the sales rep go straight out on WhatsApp (or email)."""
-    rep = playbook["sales_rep"]
-
-    def alert(text):
-        if rep.get("whatsapp"):
-            channels.send("whatsapp", normalize_phone(rep["whatsapp"]), text)
-        elif rep.get("email"):
-            channels.send("email", rep["email"], text, subject="Sales agent alert")
-    return alert

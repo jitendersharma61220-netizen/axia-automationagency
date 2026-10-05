@@ -63,3 +63,19 @@ class Live:
 def make_channels(env=None):
     env = os.environ if env is None else env
     return DryRun() if env.get("AXIA_DRY_RUN", "1") != "0" else Live(env)
+
+
+def alerter(channels, person, subject="AXIA agent alert"):
+    """A function that sends internal alerts to one person (WhatsApp first, else email).
+
+    `person` is a dict with "whatsapp" and/or "email". Alerts skip the approval
+    queue: they go to the client's own staff.
+    """
+
+    def alert(text):
+        if person.get("whatsapp"):
+            digits = "".join(c for c in person["whatsapp"] if c.isdigit())
+            channels.send("whatsapp", digits, text)
+        elif person.get("email"):
+            channels.send("email", person["email"], text, subject=subject)
+    return alert

@@ -11,7 +11,7 @@ the agent enough to switch on auto mode.
 | --- | --- | --- | --- |
 | `axia.sales` | Sales | Lead research, scoring, WhatsApp/email outreach, reply handling, meeting booking, follow-ups | Built |
 | `axia.marketing` | Marketing | Market research, campaign plans, content for every channel, performance analysis | Built |
-| `axia.ops` | Operations / accounts | Bill reading, PO matching, GST checks, approvals, payables | Planned |
+| `axia.ops` | Operations / accounts | Bill reading, PO matching, GST checks, approvals, payables | Built |
 | `axia.medical` | Clinics | Doctor-approved visit notes, lab report explainers, patient reminders | Planned |
 | `axia.hr` | HR | Resume ranking, WhatsApp screening, interview booking | Planned |
 | `axia.lead_followup` | Sales (simple) | Instant reply and timed follow-ups for every enquiry | Built |
@@ -120,6 +120,40 @@ python -m axia.marketing approve 3 --edit '{"caption": "New caption"}'
 python -m axia.marketing export 1 --out calendar.csv
 python -m axia.marketing analyze 1 examples/marketing_metrics.csv
 ```
+
+## Accounts back-office agent (accounts payable)
+
+**Who it's for:** diagnostic labs, hospitals, distributors, manufacturers and
+any company whose accounts team types vendor bills into Tally by hand.
+
+**What it does for every vendor bill (photo, PDF or text):**
+
+1. **Read.** Claude extracts vendor, GSTINs, invoice and PO numbers, dates,
+   line items and the CGST/SGST/IGST split.
+2. **Check (code, no AI).** GSTIN check digit, the bill is addressed to our
+   GSTIN, line and total arithmetic, CGST+SGST for same-state vs IGST for
+   inter-state purchases, and duplicate invoices.
+3. **Match.** Claude pairs bill lines with purchase order lines (descriptions
+   never match word for word); code then does the three-way match on rate
+   (with tolerance), quantity ordered and quantity received.
+4. **Decide.** Clean bills under the auto-approve limit are approved. Anything
+   else is held: the approver gets a WhatsApp alert with a plain-language
+   note, and a polite query email to the vendor is drafted for review.
+5. **Pay.** Approved bills get a due date (printed, or invoice date + terms)
+   and show up in the payables list; the purchase register exports to CSV.
+
+```bash
+python -m axia.ops add examples/bill_electricity.txt examples/bill_medilab.txt bill_photo.jpg
+python -m axia.ops pending          # held bills with the reason, plus vendor email drafts
+python -m axia.ops approve 1        # or reject 1
+python -m axia.ops payables --days 7
+python -m axia.ops paid 2
+python -m axia.ops ledger --out purchase_register.csv
+```
+
+Company settings (GSTIN, auto-approve limit, rate tolerance, approver, vendor
+emails) are in `examples/ops_company.json`; purchase orders and goods received
+come from `examples/purchase_orders.csv` (export from your ERP or a sheet).
 
 ## Lead follow-up (simple)
 

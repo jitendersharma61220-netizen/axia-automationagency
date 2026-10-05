@@ -1,0 +1,15 @@
+{
+  "company": "Sunrise Diagnostics Pvt Ltd",
+  "gstin": "07AAKCS5678M1ZH",
+  "auto_approve_limit": 10000,
+  "rate_tolerance_pct": 2,
+  "default_payment_days": 30,
+  "approver": {
+    "name": "Rohit Gupta (Accounts Head)",
+    "whatsapp": "919800000002",
+    "email": "rohit@sunrise.example"
+  },
+  "vendor_emails": {
+    "06BBBCD4321E1Z7": "accounts@medilab.example"
+  }
+}
