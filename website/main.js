@@ -69,11 +69,20 @@ chips.forEach((chip) =>
   })
 );
 
-// Contact form (front-end only until a backend or form service is connected)
+// Contact form: opens WhatsApp with the enquiry pre-filled
+const WHATSAPP_NUMBER = "918930522312";
 document.getElementById("contact-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = new FormData(e.target).get("name");
-  document.getElementById("form-note").textContent = `Thanks ${name}! Our team will reach out on WhatsApp within one working day.`;
+  const d = new FormData(e.target);
+  const text = [
+    "Hi AXIA, I would like a free process audit.",
+    `Name: ${d.get("name")}`,
+    d.get("company") ? `Company: ${d.get("company")}` : "",
+    `Phone: ${d.get("phone")}`,
+    `Department: ${d.get("dept")}`,
+  ].filter(Boolean).join("\n");
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+  document.getElementById("form-note").textContent = `Thanks ${d.get("name")}! WhatsApp is opening with your details. Just press send.`;
   e.target.reset();
 });
 

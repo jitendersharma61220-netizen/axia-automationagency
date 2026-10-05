@@ -16,7 +16,7 @@ Upload the `website/` folder to any static host (Netlify, Vercel, GitHub Pages, 
 
 ## Before going live
 
-- The contact form only shows a thank-you message. Connect it to a form service (Formspree, Google Forms, a WhatsApp link) or a backend.
+- The contact form opens WhatsApp (to `WHATSAPP_NUMBER` in `main.js`) with the enquiry pre-filled.
 - Portfolio entries are sample engagements with illustrative figures. Replace them with real client results as they come in.
 - Brand rule: the public site must not use the word "AI". Check new copy with:
   `grep -rniwE "ai|artificial" website --exclude-dir=vendor`
