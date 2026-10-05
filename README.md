@@ -13,7 +13,7 @@ the agent enough to switch on auto mode.
 | `axia.marketing` | Marketing | Market research, campaign plans, content for every channel, performance analysis | Built |
 | `axia.ops` | Operations / accounts | Bill reading, PO matching, GST checks, approvals, payables | Built |
 | `axia.medical` | Clinics | Doctor-approved visit notes, lab report explainers, patient reminders | Built |
-| `axia.hr` | HR | Resume ranking, WhatsApp screening, interview booking | Planned |
+| `axia.hr` | HR | Resume scoring, WhatsApp screening, interview booking | Built |
 | `axia.lead_followup` | Sales (simple) | Instant reply and timed follow-ups for every enquiry | Built |
 
 Shared building blocks live in `axia/core/`: the Claude client (`ai.py`),
@@ -190,6 +190,38 @@ Transcripts come from any speech-to-text app on the doctor's phone (record
 with the patient's consent). Patient data stays in the clinic's own SQLite
 file; check the clinic's data-protection obligations (DPDP Act) before going
 live, and consider a zero-data-retention agreement for the Claude API.
+
+## Hiring agent (HR)
+
+**Who it's for:** labs, hospitals, retail chains, BPOs and any business that
+hires the same roles again and again and drowns in resumes.
+
+**What it does:**
+
+1. **Read.** Claude turns each resume (PDF, photo or text) into a profile.
+2. **Score fairly.** Claude checks the candidate against every requirement
+   with evidence from the resume; code turns that into a 0-100 score (70%
+   must-haves, 30% nice-to-haves). Name, phone, email and location never
+   reach the scoring step, and the prompt tells Claude to ignore gender, age,
+   religion, caste and college prestige. Missing a knockout requirement (like
+   the required degree) rejects outright.
+3. **Screen on WhatsApp.** Shortlisted candidates get the job's screening
+   questions. Claude grades the answers and pulls out notice period and
+   expected salary; code checks them against the budget.
+4. **Book interviews.** Good candidates are offered real free slots; the
+   chosen slot is booked and the interviewer gets a WhatsApp alert.
+5. **Regrets.** Polite rejection messages wait for HR approval.
+
+```bash
+python -m axia.hr add examples/resumes/*.txt resumes/*.pdf
+python -m axia.hr ranking
+python -m axia.hr reply 9811022334 "1. Sysmex XN-550 ... 3. 30 days, 4 LPA"
+python -m axia.hr reply 9811022334 "Wednesday 11 am is fine"
+python -m axia.hr pending             # regrets to approve
+python -m axia.hr serve --port 8020   # WhatsApp webhook for live replies
+```
+
+The role is configured in `examples/job.json`.
 
 ## Lead follow-up (simple)
 

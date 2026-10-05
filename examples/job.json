@@ -1,0 +1,23 @@
+{
+  "company": "Sunrise Diagnostics Pvt Ltd",
+  "title": "Lab Technician (Pathology)",
+  "location": "Rohini, New Delhi",
+  "must_have": [
+    "DMLT or BSc MLT qualification",
+    "At least 2 years of work in a pathology or diagnostic lab",
+    "Hands-on with automated haematology or biochemistry analysers"
+  ],
+  "knockout": ["DMLT or BSc MLT"],
+  "nice_to_have": ["Phlebotomy / sample collection", "NABL-accredited lab experience", "LIS software"],
+  "min_score": 60,
+  "screening_questions": [
+    "Which analysers have you run yourself, and what daily QC did you do on them?",
+    "What would you do if a critical potassium value came out on a sample?",
+    "What is your notice period and expected monthly or yearly salary?"
+  ],
+  "min_screening_avg": 3,
+  "max_salary_lpa": 4.5,
+  "max_notice_days": 30,
+  "interview": {"minutes": 30, "mode": "in person at the Rohini lab", "days": ["Mon", "Tue", "Wed", "Thu", "Fri"], "start_hour": 11, "end_hour": 17, "details": "Please bring your certificates."},
+  "interviewer": {"name": "Dr. Anil Bansal", "whatsapp": "919800000004"}
+}

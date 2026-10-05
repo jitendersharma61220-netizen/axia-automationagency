@@ -7,13 +7,13 @@ through the approval queue unless the playbook sets "auto_send".
 """
 
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 
+from axia.core import calendar
 from axia.core.ai import AIError
+from axia.core.calendar import IST
 from axia.core.approvals import now
 
-IST = timezone(timedelta(hours=5, minutes=30))
-DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 QUALIFY_SCHEMA = {
     "type": "object",
@@ -155,7 +155,7 @@ class SalesAgent:
             "sales.outreach",
             self._system(f"Write the first {channel} message to this lead."),
             f"{self.profile(p)}\n\nUse the angle from qualification. Offer a "
-            f"{self.pb['meeting']['what']} at one of these times: {self._fmt(slots)}. "
+            f"{self.pb['meeting']['what']} at one of these times: {calendar.fmt(slots)}. "
             f"Keep it under {90 if channel == 'whatsapp' else 150} words, sign as "
             f"{self.pb['sales_rep']['name']} from {self.pb['company']}.",
             MESSAGE_SCHEMA)
@@ -198,11 +198,11 @@ class SalesAgent:
                 self._send(p, "", r["reply"], "not now")
             return self.store.update(p.id, stage="nurture", next_action_at=follow)
 
-        slot = self._slot(r["chosen_slot"], slots)
+        slot = calendar.pick(r["chosen_slot"], slots)
         if intent == "interested" and slot and self.store.book(p.id, slot):
             self._send(p, "Your visit is confirmed", r["reply"], "booking confirmation")
             self.alert(f"Meeting booked: {p.name} ({p.company or p.phone or p.email}) on "
-                       f"{self._fmt([slot])}. Score {p.score}. {r['summary']}")
+                       f"{calendar.fmt([slot])}. Score {p.score}. {r['summary']}")
             return self.store.update(p.id, stage="meeting_booked")
         # Questions, objections, or interest without a time: answer and offer slots.
         self._send(p, "Re: your enquiry", r["reply"], intent, review=r["needs_human"])
@@ -240,7 +240,7 @@ class SalesAgent:
         channel, _ = self._channel(p)
         try:
             m = self.ai.ask_json("sales.follow_up", self._system(instruction),
-                                 f"{self.profile(p)}\n\nFree slots: {self._fmt(self.free_slots())}",
+                                 f"{self.profile(p)}\n\nFree slots: {calendar.fmt(self.free_slots())}",
                                  MESSAGE_SCHEMA)
         except AIError as e:
             self.store.log(p.id, "note", "", f"follow-up failed, will retry: {e}")
@@ -252,39 +252,8 @@ class SalesAgent:
     # ----- calendar -------------------------------------------------------
 
     def free_slots(self, count=3):
-        """Next open meeting slots (IST), from tomorrow, inside working hours."""
-        m = self.pb["meeting"]
-        booked = self.store.booked_slots()
-        day = (self.clock().astimezone(IST) + timedelta(days=1)).replace(
-            hour=0, minute=0, second=0, microsecond=0)
-        slots = []
-        for _ in range(30):
-            if DAYS[day.weekday()] in m["days"]:
-                start = day.replace(hour=m["start_hour"])
-                while start + timedelta(minutes=m["minutes"]) <= day.replace(hour=m["end_hour"]):
-                    if start not in booked:
-                        slots.append(start)
-                        # Offer a spread of choices: at most two per day, hours apart.
-                        if sum(s.date() == day.date() for s in slots) == 2:
-                            break
-                        start += timedelta(minutes=m["minutes"]) * 2
-                    start += timedelta(minutes=m["minutes"])
-            if len(slots) >= count:
-                return slots[:count]
-            day += timedelta(days=1)
-        return slots
-
-    @staticmethod
-    def _fmt(slots):
-        return ", ".join(s.astimezone(IST).strftime("%a %d %b %I:%M %p") for s in slots)
-
-    @staticmethod
-    def _slot(text, offered):
-        try:
-            chosen = datetime.fromisoformat(text) if text else None
-        except ValueError:
-            return None
-        return chosen if chosen in offered else None
+        return calendar.free_slots(self.clock(), self.pb["meeting"], self.store.booked_slots(),
+                                   count)
 
     @staticmethod
     def _date(text):

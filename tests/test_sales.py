@@ -5,7 +5,8 @@ from datetime import datetime, timedelta, timezone
 from axia.core.ai import AIError
 from axia.core.approvals import Approvals, Outbox, connect
 from axia.core.channels import DryRun
-from axia.sales.agent import IST, SalesAgent
+from axia.core.calendar import IST
+from axia.sales.agent import SalesAgent
 from axia.sales.store import Store, normalize_phone
 
 from .fakes import FakeAI
