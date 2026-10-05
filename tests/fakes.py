@@ -1,5 +1,6 @@
 """Stand-ins for Claude and the outside world, so tests run offline."""
 
+import copy
 from collections import defaultdict
 
 
@@ -22,7 +23,7 @@ class FakeAI:
         value = self.answers[task].pop(0)
         if isinstance(value, Exception):
             raise value
-        return value(content) if callable(value) else value
+        return value(content) if callable(value) else copy.deepcopy(value)
 
     def ask_json(self, task, system, content, schema, **_):
         return self._next(task, system, content)

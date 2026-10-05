@@ -10,7 +10,7 @@ the agent enough to switch on auto mode.
 | Agent | Department | What it takes over | Status |
 | --- | --- | --- | --- |
 | `axia.sales` | Sales | Lead research, scoring, WhatsApp/email outreach, reply handling, meeting booking, follow-ups | Built |
-| `axia.marketing` | Marketing | Campaign plans, content for every channel, performance analysis | Planned |
+| `axia.marketing` | Marketing | Market research, campaign plans, content for every channel, performance analysis | Built |
 | `axia.ops` | Operations / accounts | Bill reading, PO matching, GST checks, approvals, payables | Planned |
 | `axia.medical` | Clinics | Doctor-approved visit notes, lab report explainers, patient reminders | Planned |
 | `axia.hr` | HR | Resume ranking, WhatsApp screening, interview booking | Planned |
@@ -85,6 +85,41 @@ python -m axia.sales run                     # new leads + due follow-ups; sched
 Note: WhatsApp only allows free-form messages to people who wrote in the last
 24 hours. For cold outreach, register an approved template in Meta, or set
 `prefer_whatsapp` to false to use email.
+
+## Marketing campaign engine
+
+**Who it's for:** gyms, clinics, coaching institutes, restaurants and D2C
+brands that run their own Instagram, WhatsApp and Google Ads without a
+marketing team.
+
+**What it does for a goal like "50 new members for Diwali":**
+
+1. **Research.** Claude searches the web for what nearby competitors are
+   offering right now and the festivals and local events in the window.
+2. **Plan.** Segments, offer, key message, budget split per channel, KPI
+   targets and a dated content calendar built around the research.
+3. **Create.** Instagram captions with hashtags and a visual brief, Facebook
+   posts, WhatsApp broadcasts and Google responsive search ads. Code checks
+   hard rules (Google's 30/90-character limits, banned phrases like
+   "guaranteed weight loss") and sends a piece back for one rewrite if needed.
+4. **Approve and export.** The owner approves or edits each piece; approved
+   posts export as a calendar CSV for Meta Business Suite or any scheduler.
+5. **Analyse.** From the ad platforms' numbers, code computes CTR, cost per
+   lead and ROAS per channel; Claude explains what is working in plain words
+   and proposes a new budget split (at most 20 points shift per channel per
+   review).
+
+The brand is configured in `examples/marketing_brand.json`.
+
+```bash
+python -m axia.marketing plan "50 new members for Diwali" --start 2026-10-15 --weeks 4
+python -m axia.marketing show 1
+python -m axia.marketing create 1
+python -m axia.marketing pending
+python -m axia.marketing approve 3 --edit '{"caption": "New caption"}'
+python -m axia.marketing export 1 --out calendar.csv
+python -m axia.marketing analyze 1 examples/marketing_metrics.csv
+```
 
 ## Lead follow-up (simple)
 

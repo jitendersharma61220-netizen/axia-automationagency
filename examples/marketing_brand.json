@@ -1,0 +1,11 @@
+{
+  "business": "FitZone Gym",
+  "about": "Gym and group-fitness studio in Indiranagar, Bengaluru: strength floor, Zumba, yoga and personal training.",
+  "audience": "Working professionals aged 22-40 living within 5 km, and homemakers for morning batches.",
+  "location": "Indiranagar, Bengaluru",
+  "channels": ["instagram", "facebook", "whatsapp", "google_ads"],
+  "monthly_budget": 60000,
+  "voice": "Energetic, friendly, no body-shaming, no fake urgency. English with light Hinglish.",
+  "do_not_say": ["guaranteed weight loss", "lose 10 kg", "cheapest", "best in Bangalore"],
+  "website": "https://fitzone.example"
+}
