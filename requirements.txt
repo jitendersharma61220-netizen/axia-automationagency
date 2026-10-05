@@ -1,0 +1,3 @@
+# Needed only for the AI agents (sales, marketing, ops, medical, hr).
+# Lead follow-up runs on the standard library alone.
+anthropic>=1.11

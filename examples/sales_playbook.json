@@ -1,0 +1,15 @@
+{
+  "company": "BuildRight Realty",
+  "about": "Real estate agency in Pune selling 2 and 3 BHK flats in new projects in Hinjewadi, Wakad and Baner.",
+  "offer": "Site visit and a free home-loan eligibility check for buyers looking at ready or under-construction flats.",
+  "ideal_customer": "Salaried professionals or families in Pune with a budget of Rs 60 lakh to 1.5 crore, planning to buy within 6 months.",
+  "disqualify_if": "Only looking to rent, budget under Rs 40 lakh, or looking outside Pune.",
+  "pricing_notes": "2 BHK from Rs 72 lakh, 3 BHK from Rs 1.05 crore. Never promise discounts; the sales rep discusses offers.",
+  "meeting": {"what": "site visit", "minutes": 60, "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "start_hour": 10, "end_hour": 18},
+  "sales_rep": {"name": "Neha Kulkarni", "email": "neha@buildright.example", "whatsapp": "919800000001"},
+  "prefer_whatsapp": true,
+  "min_score": 50,
+  "follow_up_days": [2, 5],
+  "tone": "Warm, short and respectful. Match the customer's language (English, Hindi, Hinglish or Marathi).",
+  "auto_send": false
+}
