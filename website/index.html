@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AXIA | Department Automation Agency</title>
+  <meta name="description" content="AXIA builds automation systems that run sales, marketing, accounts, clinic and hiring work for Indian businesses, with your team approving every key step." />
+  <meta name="theme-color" content="#070a1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav" id="top">
+    <a class="logo" href="#top" aria-label="AXIA home">
+      <span class="logo-mark" aria-hidden="true"></span>AXIA
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact" class="btn btn-small">Book a free audit</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="eyebrow">Automation agency for Indian businesses</p>
+        <h1>Your departments,<br /><span class="grad">on autopilot.</span></h1>
+        <p class="lead">AXIA builds smart automation systems that run the repetitive work of sales, marketing, accounts, clinics and hiring. Your team stays in control and approves every key step.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Book a free process audit</a>
+          <a href="#work" class="btn btn-ghost">See our work</a>
+        </div>
+        <ul class="hero-tags">
+          <li>WhatsApp first</li><li>GST ready</li><li>Hindi + English</li><li>Human approval built in</li>
+        </ul>
+      </div>
+      <a href="#services" class="scroll-hint" aria-label="Scroll to services"><span></span></a>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats reveal">
+      <div><strong data-count="5">0</strong><span>department systems</span></div>
+      <div><strong data-count="24" data-suffix="x7">0</strong><span>always running</span></div>
+      <div><strong data-count="70" data-suffix="%">0</strong><span>manual work we target to remove</span></div>
+      <div><strong data-count="14" data-suffix=" days">0</strong><span>typical pilot launch</span></div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we automate</p>
+        <h2>Five complete department systems</h2>
+        <p class="sub">Not small one-off bots. Each system runs a full workflow end to end, from first input to final record, and asks your team before anything important goes out.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card tilt reveal" style="--c1:#ff8a3d;--c2:#ffcf5c">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          </div>
+          <p class="card-dept">Sales</p>
+          <h3>Sales Outreach Agent</h3>
+          <p>Researches every lead, scores fit, writes personal outreach, sorts replies and books meetings straight into your calendar and CRM.</p>
+          <ul class="steps">
+            <li>Lead research</li><li>Fit scoring</li><li>Outreach</li><li>Reply triage</li><li>Meeting booking</li>
+          </ul>
+        </article>
+
+        <article class="card tilt reveal" style="--c1:#7b5cff;--c2:#c084fc">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4z"/><path d="M16 9a4 4 0 010 6"/><path d="M18.5 6.5a8 8 0 010 11"/></svg>
+          </div>
+          <p class="card-dept">Marketing</p>
+          <h3>Campaign Engine</h3>
+          <p>Plans the monthly campaign, writes content for Instagram, WhatsApp, email and ads in your brand voice, then reads results and improves the next round.</p>
+          <ul class="steps">
+            <li>Campaign plan</li><li>Multi-channel content</li><li>Brand check</li><li>Performance report</li>
+          </ul>
+        </article>
+
+        <article class="card tilt reveal" style="--c1:#2ee6d6;--c2:#4f8bff">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+          </div>
+          <p class="card-dept">Operations</p>
+          <h3>Accounts Back-Office</h3>
+          <p>Reads supplier bills, matches them to purchase orders, checks GST details, routes approvals and prepares your payables list.</p>
+          <ul class="steps">
+            <li>Bill reading</li><li>PO matching</li><li>GST check</li><li>Approvals</li><li>Payables</li>
+          </ul>
+        </article>
+
+        <article class="card tilt reveal" style="--c1:#ff5c8a;--c2:#ff9a8b">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/><path d="M12 9v5M9.5 11.5h5"/></svg>
+          </div>
+          <p class="card-dept">Healthcare</p>
+          <h3>Clinic Assistant</h3>
+          <p>Drafts consultation notes for the doctor to approve, explains lab reports to patients in simple language and sends follow-up reminders.</p>
+          <ul class="steps">
+            <li>Doctor-approved notes</li><li>Lab report explainer</li><li>Patient reminders</li>
+          </ul>
+        </article>
+
+        <article class="card tilt reveal" style="--c1:#5cff9d;--c2:#2ee6d6">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 11l2 2 4-4"/></svg>
+          </div>
+          <p class="card-dept">HR</p>
+          <h3>Hiring Agent</h3>
+          <p>Ranks resumes against the role, runs a first screening on WhatsApp and books interviews with your panel, so recruiters only meet strong candidates.</p>
+          <ul class="steps">
+            <li>Resume ranking</li><li>WhatsApp screening</li><li>Interview booking</li>
+          </ul>
+        </article>
+
+        <article class="card card-cta tilt reveal">
+          <h3>Have a different department in mind?</h3>
+          <p>We map your current process, find the repeat work, and design a system around it.</p>
+          <a href="#contact" class="btn">Talk to us</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- WORK / PORTFOLIO -->
+    <section class="section section-alt" id="work">
+      <div class="section-head reveal">
+        <p class="eyebrow">Portfolio</p>
+        <h2>What these systems look like in practice</h2>
+        <p class="sub">Sample engagements showing how each AXIA system fits a real Indian business. Figures are illustrative targets for a typical setup.</p>
+      </div>
+
+      <div class="filters reveal" role="tablist" aria-label="Filter portfolio">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="sales">Sales</button>
+        <button class="chip" data-filter="marketing">Marketing</button>
+        <button class="chip" data-filter="ops">Operations</button>
+        <button class="chip" data-filter="health">Healthcare</button>
+        <button class="chip" data-filter="hr">HR</button>
+      </div>
+
+      <div class="work-grid">
+        <article class="work reveal" data-cat="sales">
+          <div class="work-visual" style="--c1:#ff8a3d;--c2:#ffcf5c"><span class="work-shape s1"></span><span class="work-label">Sales Outreach Agent</span></div>
+          <div class="work-body">
+            <p class="work-meta">B2B software company · Pune</p>
+            <h3>From 40 cold emails a day to 300 researched ones</h3>
+            <p>The sales team spent mornings finding contacts and writing emails. The agent now researches each company, writes a personal first message and sorts every reply into interested, later or not now.</p>
+            <div class="metrics"><div><b>7x</b><span>outreach volume</span></div><div><b>3 hrs</b><span>saved per rep daily</span></div><div><b>2x</b><span>meetings booked</span></div></div>
+          </div>
+        </article>
+
+        <article class="work reveal" data-cat="marketing">
+          <div class="work-visual" style="--c1:#7b5cff;--c2:#c084fc"><span class="work-shape s2"></span><span class="work-label">Campaign Engine</span></div>
+          <div class="work-body">
+            <p class="work-meta">D2C skincare brand · Jaipur</p>
+            <h3>A full month of festive content, planned in one afternoon</h3>
+            <p>For the Diwali season the engine built the campaign calendar, wrote posts, reels scripts, WhatsApp broadcasts and ad copy, then flagged which creatives to scale after week one.</p>
+            <div class="metrics"><div><b>120+</b><span>pieces per month</span></div><div><b>5</b><span>channels covered</span></div><div><b>1</b><span>approval round</span></div></div>
+          </div>
+        </article>
+
+        <article class="work reveal" data-cat="ops">
+          <div class="work-visual" style="--c1:#2ee6d6;--c2:#4f8bff"><span class="work-shape s3"></span><span class="work-label">Accounts Back-Office</span></div>
+          <div class="work-body">
+            <p class="work-meta">FMCG distributor · Ludhiana</p>
+            <h3>800 supplier bills a month, matched and GST-checked</h3>
+            <p>Bills arrived as photos and PDFs on WhatsApp and email. The system reads them, matches each to its purchase order, flags GST mismatches and sends the payables list for one-click approval.</p>
+            <div class="metrics"><div><b>90%</b><span>bills auto-matched</span></div><div><b>0</b><span>missed due dates</span></div><div><b>4 days</b><span>faster month close</span></div></div>
+          </div>
+        </article>
+
+        <article class="work reveal" data-cat="health">
+          <div class="work-visual" style="--c1:#ff5c8a;--c2:#ff9a8b"><span class="work-shape s4"></span><span class="work-label">Clinic Assistant</span></div>
+          <div class="work-body">
+            <p class="work-meta">Multi-speciality clinic · Indore</p>
+            <h3>Doctors back to patients, not paperwork</h3>
+            <p>Consultation notes are drafted for the doctor to review and sign. Patients get their lab reports explained in Hindi or English, plus reminders for follow-ups and repeat tests.</p>
+            <div class="metrics"><div><b>2 hrs</b><span>saved per doctor daily</span></div><div><b>100%</b><span>notes doctor-approved</span></div><div><b>35%</b><span>fewer missed follow-ups</span></div></div>
+          </div>
+        </article>
+
+        <article class="work reveal" data-cat="hr">
+          <div class="work-visual" style="--c1:#5cff9d;--c2:#2ee6d6"><span class="work-shape s5"></span><span class="work-label">Hiring Agent</span></div>
+          <div class="work-body">
+            <p class="work-meta">Staffing firm · Gurugram</p>
+            <h3>1,000 applications screened in a weekend</h3>
+            <p>For a bulk hiring drive, the agent ranked every resume, ran a short WhatsApp screening with each shortlisted candidate and filled the interview panel's calendar for the week.</p>
+            <div class="metrics"><div><b>10x</b><span>faster shortlisting</span></div><div><b>48 hrs</b><span>apply to interview</span></div><div><b>60%</b><span>less recruiter time</span></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="section-head reveal">
+        <p class="eyebrow">How we work</p>
+        <h2>From messy process to running system</h2>
+      </div>
+      <ol class="process">
+        <li class="reveal"><span class="num">01</span><h3>Audit</h3><p>We sit with your team, map the current process and find where hours are lost.</p></li>
+        <li class="reveal"><span class="num">02</span><h3>Design</h3><p>We design the workflow, the tools it connects to and the points where a person approves.</p></li>
+        <li class="reveal"><span class="num">03</span><h3>Pilot</h3><p>A working pilot goes live on real data in about two weeks, with your team watching every step.</p></li>
+        <li class="reveal"><span class="num">04</span><h3>Scale</h3><p>Once results are proven, we roll it out fully and keep tuning it every month.</p></li>
+      </ol>
+
+      <div class="trust reveal">
+        <div><h4>You stay in control</h4><p>Nothing important is sent, paid or filed without a person approving it.</p></div>
+        <div><h4>Works with your tools</h4><p>WhatsApp, Gmail, Google Sheets, Tally, Zoho and your existing CRM.</p></div>
+        <div><h4>Built for India</h4><p>GST rules, Hindi and English, rupee pricing and Indian business hours.</p></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <canvas id="cta-canvas" aria-hidden="true"></canvas>
+      <div class="contact-inner reveal">
+        <div class="contact-copy">
+          <p class="eyebrow">Free process audit</p>
+          <h2>Tell us which department slows you down.</h2>
+          <p class="sub">We will map the process and show you exactly what AXIA can take off your team's plate. No cost, no commitment.</p>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <label>Name<input name="name" required placeholder="Your name" /></label>
+          <label>Company<input name="company" placeholder="Company name" /></label>
+          <label>Phone or WhatsApp<input name="phone" required placeholder="+91" /></label>
+          <label>Department to automate
+            <select name="dept">
+              <option>Sales</option><option>Marketing</option><option>Accounts / Operations</option><option>Clinic / Healthcare</option><option>HR / Hiring</option><option>Something else</option>
+            </select>
+          </label>
+          <button class="btn" type="submit">Book my free audit</button>
+          <p class="form-note" id="form-note" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"></span>AXIA</a>
+    <p>Department automation for Indian businesses.</p>
+    <p class="copy">&copy; <span id="year"></span> AXIA Automation Agency</p>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
