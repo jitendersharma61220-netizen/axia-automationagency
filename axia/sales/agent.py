@@ -118,6 +118,7 @@ class SalesAgent:
                     self.outreach(p)
                 done += 1
             except AIError as e:
+                print(f"Lead #{p.id} {p.name}: AI step failed, will retry on the next run: {e}")
                 self.store.log(p.id, "note", "", f"AI step failed, will retry: {e}")
         return done
 
