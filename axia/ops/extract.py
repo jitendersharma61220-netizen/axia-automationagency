@@ -72,7 +72,7 @@ CATEGORY_WORDS = {
 def extract(content, ai=None):
     """content: bill text (str) or a list of content blocks (e.g. a photo)."""
     if ai is not None:
-        from axia.ai import AIError
+        from axia.core.ai import AIError
 
         try:
             return normalize(ai.ask_json(SYSTEM, content, BILL_SCHEMA))
