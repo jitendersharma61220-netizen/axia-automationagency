@@ -213,6 +213,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.1; letter-spacing
 }
 .contact-form select option { background: var(--bg-2); }
 .contact-form input:focus, .contact-form select:focus { border-color: var(--violet); }
+.form-alt { font-size: 14px; color: var(--muted); }
+.form-alt a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
 .form-note { font-size: 14px; color: var(--cyan); min-height: 1em; }
 
 /* Footer */
