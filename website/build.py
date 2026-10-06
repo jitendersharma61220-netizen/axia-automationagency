@@ -34,7 +34,7 @@ DEPTS = [
         "summary": "Researches every lead, scores fit, writes personal outreach, sorts replies and books meetings straight into your calendar and CRM.",
         "problem": "Your sales team spends its mornings finding contact details, copying data into sheets and writing the same emails again and again. Good leads go cold because nobody followed up on day three.",
         "flow": {
-            "inputs": ["Lead lists", "Website forms", "IndiaMART leads"],
+            "inputs": ["Lead lists", "Website forms", "Lead marketplaces"],
             "stages": ["Research", "Score fit", "Write outreach", "You approve", "Send & book"],
             "approval": 3,
             "outputs": ["CRM", "Calendar", "Rep alert"],
@@ -42,7 +42,7 @@ DEPTS = [
         "steps": [
             ("Research", "Reads the company website, recent news and the contact's role so every message starts from real context."),
             ("Score fit", "Scores each lead against your ideal customer and puts the best ones first."),
-            ("Write outreach", "Drafts a personal first message for WhatsApp or email, in Hindi or English, with real free meeting slots."),
+            ("Write outreach", "Drafts a personal first message for WhatsApp or email, in the lead's own language, with real free meeting slots."),
             ("You approve", "Your rep reviews the batch in one place and approves, edits or skips each message."),
             ("Send and book", "Sends, follows up on silence, sorts every reply into interested, later or not now, and books meetings."),
         ],
@@ -92,23 +92,23 @@ DEPTS = [
         "c1": "#2ee6d6",
         "c2": "#4f8bff",
         "icon": '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/>',
-        "tagline": "Supplier bills read, matched, GST-checked and ready to pay, without manual entry.",
-        "summary": "Reads supplier bills, matches them to purchase orders, checks GST details, routes approvals and prepares your payables list.",
-        "problem": "Bills arrive as photos on WhatsApp, PDFs on email and paper at the gate. Someone types each one into Tally, checks it against the PO by hand and still misses GST mismatches and due dates.",
+        "tagline": "Supplier bills read, matched, tax-checked and ready to pay, without manual entry.",
+        "summary": "Reads supplier bills, matches them to purchase orders, checks tax details, routes approvals and prepares your payables list.",
+        "problem": "Bills arrive as photos on WhatsApp, PDFs on email and paper at the gate. Someone types each one into the accounting software, checks it against the PO by hand and still misses tax mismatches and due dates.",
         "flow": {
             "inputs": ["Bills on WhatsApp", "Email PDFs", "Purchase orders"],
-            "stages": ["Read bill", "Match PO", "GST check", "You approve", "Schedule pay"],
+            "stages": ["Read bill", "Match PO", "Tax check", "You approve", "Schedule pay"],
             "approval": 3,
-            "outputs": ["Tally", "Payables list", "Vendor query"],
+            "outputs": ["Accounting", "Payables list", "Vendor query"],
         },
         "steps": [
-            ("Read bill", "Reads photos, scans and PDFs and pulls out vendor, GSTIN, items, rates, tax and totals."),
+            ("Read bill", "Reads photos, scans and PDFs and pulls out vendor, tax ID, items, rates, tax and totals."),
             ("Match PO", "Three-way matches each bill against the purchase order and goods received."),
-            ("GST check", "Validates the GSTIN, recomputes the arithmetic and checks CGST/SGST versus IGST."),
+            ("Tax check", "Validates the tax ID, recomputes the arithmetic and checks the tax split, whether GST, VAT or sales tax."),
             ("You approve", "Clean small bills can pass automatically; anything unusual waits for your approver with a clear note."),
             ("Schedule pay", "Updates the payables list, drafts vendor queries for mismatches and exports the purchase register."),
         ],
-        "tools": ["Tally", "Zoho Books", "WhatsApp Business", "Gmail", "Google Sheets", "Excel"],
+        "tools": ["Tally", "QuickBooks", "Xero", "Zoho Books", "WhatsApp Business", "Gmail", "Excel"],
         "case": {
             "meta": "FMCG distributor · Ludhiana",
             "title": "800 supplier bills a month, matched and GST-checked",
@@ -136,14 +136,14 @@ DEPTS = [
             ("Draft notes", "Turns the consultation into structured notes and a draft prescription."),
             ("Safety check", "Flags allergies, duplicate medicines and missing doses before the doctor sees the draft."),
             ("Doctor approves", "Nothing reaches a patient until the doctor reviews and signs it."),
-            ("Explain", "Explains lab reports in simple Hindi or English, with critical values sent to the doctor first."),
+            ("Explain", "Explains lab reports in simple language the patient understands, with critical values sent to the doctor first."),
             ("Remind", "Sends dose reminders, follow-up visit reminders and repeat test alerts on WhatsApp."),
         ],
         "tools": ["Clinic software", "WhatsApp Business", "Google Calendar", "Lab report PDFs", "Google Sheets"],
         "case": {
             "meta": "Multi-speciality clinic · Indore",
             "title": "Doctors back to patients, not paperwork",
-            "body": "Consultation notes are drafted for the doctor to review and sign. Patients get their lab reports explained in Hindi or English, plus reminders for follow-ups and repeat tests.",
+            "body": "Consultation notes are drafted for the doctor to review and sign. Patients get their lab reports explained in their own language, plus reminders for follow-ups and repeat tests.",
             "metrics": [("2 hrs", "saved per doctor daily"), ("100%", "notes doctor-approved"), ("35%", "fewer missed follow-ups")],
         },
     },
@@ -184,7 +184,7 @@ HOME_FLOW = {
     "inputs": ["WhatsApp", "Email", "Forms & sheets"],
     "stages": ["Capture", "Understand", "Check rules", "You approve", "Act"],
     "approval": 3,
-    "outputs": ["CRM", "Tally", "Calendar"],
+    "outputs": ["CRM", "Accounts", "Calendar"],
     "color": "#7b5cff",
     "accent": "#2ee6d6",
 }
@@ -269,7 +269,7 @@ def layout(key, title, desc, body, engine=True):
     <div class="footer-grid">
       <div>
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span>AXIA</a>
-        <p>Department automation for Indian businesses.</p>
+        <p>Department automation for growing businesses, anywhere in the world.</p>
       </div>
       <div>
         <h4>Services</h4>
@@ -359,14 +359,14 @@ def home():
     body = f"""    <section class="hero">
       <canvas id="hero-canvas" data-engine="hero" data-flow="{flow_attr(HOME_FLOW)}" aria-hidden="true"></canvas>
       <div class="hero-content">
-        <p class="eyebrow">Automation agency for Indian businesses</p>
+        <p class="eyebrow">Department automation agency</p>
         <h1>Your departments,<br /><span class="grad">on autopilot.</span></h1>
         <p class="lead">AXIA builds workflow engines that run the repetitive work of sales, marketing, accounts, clinics and hiring. Work flows in, gets checked, waits for your approval where it matters, and lands in your tools.</p>
         <div class="hero-cta">
           <a href="contact.html" class="btn">Book a free process audit</a>
           <a href="tel:{PHONE}" class="btn btn-ghost">{PHONE_ICON}Call {PHONE_DISPLAY}</a>
         </div>
-        <ul class="hero-tags"><li>WhatsApp first</li><li>GST ready</li><li>Hindi + English</li><li>Human approval built in</li></ul>
+        <ul class="hero-tags"><li>WhatsApp first</li><li>Any language</li><li>Clients in any country</li><li>Human approval built in</li></ul>
       </div>
     </section>
 
@@ -387,7 +387,7 @@ def home():
         <div class="how reveal"><span class="how-n">IN</span><h3>Collect</h3><p>Messages, bills, resumes, leads and reports arrive from WhatsApp, email, forms and your existing software.</p></div>
         <div class="how reveal"><span class="how-n">RUN</span><h3>Process</h3><p>Each item moves through fixed stages: read, check against your rules, draft the next action.</p></div>
         <div class="how reveal how-approve"><span class="how-n">OK</span><h3>You approve</h3><p>Anything important stops for a person. You approve in one tap on your phone.</p></div>
-        <div class="how reveal"><span class="how-n">OUT</span><h3>Deliver</h3><p>Approved work lands in Tally, your CRM, calendars and customer WhatsApp, with a full log.</p></div>
+        <div class="how reveal"><span class="how-n">OUT</span><h3>Deliver</h3><p>Approved work lands in your accounting software, CRM, calendars and customer WhatsApp, with a full log.</p></div>
       </div>
     </section>
 
@@ -421,7 +421,7 @@ def home():
       <div class="section-head reveal"><p class="eyebrow">How we work</p><h2>From messy process to running engine</h2></div>
 {PROCESS}    </section>
 """
-    return layout("index", "AXIA | Department Automation Agency", "AXIA builds workflow engines that run sales, marketing, accounts, clinic and hiring work for Indian businesses, with your team approving every key step.", body)
+    return layout("index", "AXIA | Department Automation Agency", "AXIA builds workflow engines that run sales, marketing, accounts, clinic and hiring work for businesses worldwide, with your team approving every key step.", body)
 
 
 def services():
@@ -447,7 +447,7 @@ def services():
       <div class="section-head reveal"><p class="eyebrow">Every engagement includes</p><h2>What you get</h2></div>
       <div class="trust">
         <div class="reveal"><h4>Process audit</h4><p>A written map of your current workflow, where time is lost and what the engine will take over.</p></div>
-        <div class="reveal"><h4>Setup and integrations</h4><p>Connected to your WhatsApp, email, Tally, CRM and sheets. No new software for your team to learn.</p></div>
+        <div class="reveal"><h4>Setup and integrations</h4><p>Connected to your WhatsApp, email, accounting software, CRM and sheets. No new software for your team to learn.</p></div>
         <div class="reveal"><h4>Approval dashboard</h4><p>One place on your phone to approve, edit or stop anything before it goes out.</p></div>
         <div class="reveal"><h4>Two-week pilot</h4><p>Live on your real data with your team watching every step before full rollout.</p></div>
         <div class="reveal"><h4>Monthly tuning</h4><p>We review results every month, adjust rules and add new steps as your business grows.</p></div>
@@ -459,7 +459,7 @@ def services():
       <div class="section-head reveal"><p class="eyebrow">How we work</p><h2>From audit to running engine</h2></div>
 {PROCESS}    </section>
 """
-    return layout("services", "Services | AXIA", "Five department automation engines for Indian businesses: sales, marketing, accounts, clinics and hiring.", body)
+    return layout("services", "Services | AXIA", "Five department automation engines for businesses worldwide: sales, marketing, accounts, clinics and hiring.", body)
 
 
 def dept_page(d, idx):
@@ -514,7 +514,7 @@ def portfolio():
     cases = "".join(case_card(d, i) for i, d in enumerate(DEPTS))
     body = page_hero(
         "Portfolio",
-        'Engines at work in<br /><span class="grad">Indian businesses.</span>',
+        'Engines at work in<br /><span class="grad">real businesses.</span>',
         "Sample engagements showing how each AXIA engine fits a real business. Figures are illustrative targets for a typical setup.",
         flow_attr(HOME_FLOW),
     ) + f"""
@@ -531,7 +531,7 @@ def about():
     body = page_hero(
         "About AXIA",
         'We build the engines.<br /><span class="grad">Your team keeps control.</span>',
-        "AXIA is an automation agency built in India for Indian businesses. We take the repetitive work off your departments so your people can do the work only people can do.",
+        "AXIA is an automation agency for businesses in any country. We take the repetitive work off your departments so your people can do the work only people can do.",
         flow_attr(HOME_FLOW),
     ) + f"""
     <section class="section">
@@ -539,13 +539,13 @@ def about():
         <div class="reveal">
           <p class="eyebrow">Why we exist</p>
           <h2>Most teams are stuck doing copy-paste work</h2>
-          <p class="sub">Typing bills into Tally. Forwarding resumes. Writing the same follow-up message for the hundredth time. Indian businesses run on WhatsApp, spreadsheets and hard work, and a lot of that work repeats every single day.</p>
+          <p class="sub">Typing bills into accounting software. Forwarding resumes. Writing the same follow-up message for the hundredth time. Most businesses run on email, WhatsApp, spreadsheets and hard work, and a lot of that work repeats every single day.</p>
           <p class="sub">We design engines that do the repeat part reliably, in the tools you already use, and stop for a person whenever a decision matters.</p>
         </div>
         <div class="values">
           <div class="reveal"><h4>Approval first</h4><p>Nothing important is sent, paid or filed without a person saying yes.</p></div>
-          <div class="reveal"><h4>Your tools, not ours</h4><p>WhatsApp, Gmail, Tally, Zoho and Google Sheets. No new software for your team.</p></div>
-          <div class="reveal"><h4>Built for India</h4><p>GST rules, Hindi and English, rupee pricing and the way Indian teams actually work.</p></div>
+          <div class="reveal"><h4>Your tools, not ours</h4><p>WhatsApp, Gmail, QuickBooks, Tally, Zoho and Google Sheets. No new software for your team.</p></div>
+          <div class="reveal"><h4>Built for any market</h4><p>Your local tax rules, your customers' languages, your currency and your time zone.</p></div>
           <div class="reveal"><h4>Results you can measure</h4><p>Every engine comes with a log and a monthly report of hours saved and work done.</p></div>
         </div>
       </div>
@@ -555,7 +555,7 @@ def about():
       <div class="section-head reveal"><p class="eyebrow">How we work</p><h2>From audit to running engine</h2></div>
 {PROCESS}    </section>
 """
-    return layout("about", "About | AXIA", "AXIA is an automation agency built in India for Indian businesses.", body)
+    return layout("about", "About | AXIA", "AXIA is a department automation agency for businesses worldwide.", body)
 
 
 def contact():
