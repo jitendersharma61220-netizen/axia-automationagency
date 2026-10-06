@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your free automation plan | AXIA</title>
+  <meta name="description" content="Tell AXIA about your business and get a tailored automation plan: concept, live demo, pitch deck and savings on WhatsApp." />
+  <meta name="theme-color" content="#070a1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="index.html" aria-label="AXIA home"><span class="logo-mark" aria-hidden="true"></span>AXIA</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <div class="has-sub"><a href="services.html">Services</a><div class="sub"><a href="sales.html"><span class="dot" style="--c:#ff8a3d"></span>Sales Outreach Agent</a><a href="marketing.html"><span class="dot" style="--c:#7b5cff"></span>Campaign Engine</a><a href="accounts.html"><span class="dot" style="--c:#2ee6d6"></span>Accounts Back-Office</a><a href="clinic.html"><span class="dot" style="--c:#ff5c8a"></span>Clinic Assistant</a><a href="hiring.html"><span class="dot" style="--c:#5cff9d"></span>Hiring Agent</a></div></div>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="plan.html" class="active">Free plan</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+918930522312" class="btn btn-small btn-call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg><span>Call now</span></a>
+    </nav>
+    <div class="nav-right">
+      <a href="tel:+918930522312" class="call-chip" aria-label="Call AXIA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero plan-hero">
+      <div class="page-hero-copy reveal">
+        <p class="eyebrow">Free automation plan</p>
+        <h1>See your business <span class="grad">run on autopilot.</span></h1>
+        <p class="lead">Pick a service and tell us about your business. In about a minute the AXIA engine builds your plan.</p>
+      </div>
+      <ol class="plan-gets reveal">
+        <li><b>Why you need it</b><span>The concept, explained around your own problem.</span></li>
+        <li><b>A live demo</b><span>Your business, your customers, the problem being solved in front of you.</span></li>
+        <li><b>Your pitch deck</b><span>Problem, solution, savings and rollout, ready to save as PDF.</span></li>
+        <li><b>On your WhatsApp</b><span>Your problem, the solution, your savings and your extra profit.</span></li>
+      </ol>
+    </section>
+
+    <section class="section plan-section">
+      <form id="plan-form" class="plan-form reveal" data-engine-url="" data-whatsapp="918930522312" novalidate>
+        <fieldset>
+          <legend><span>1</span>Pick a service</legend>
+          <div class="svc-grid"><label class="svc" style="--c1:#25d366;--c2:#2ee6d6"><input type="radio" name="service" value="whatsapp" checked /><span class="svc-dept">Customer chat</span><b>WhatsApp Automation</b><span class="svc-line">Replies to every customer in seconds, day and night.</span></label><label class="svc" style="--c1:#ff8a3d;--c2:#ffcf5c"><input type="radio" name="service" value="sales" /><span class="svc-dept">Sales</span><b>Sales Outreach Agent</b><span class="svc-line">A sales desk that researches, writes and follows up on every lead, every day.</span></label><label class="svc" style="--c1:#7b5cff;--c2:#c084fc"><input type="radio" name="service" value="marketing" /><span class="svc-dept">Marketing</span><b>Campaign Engine</b><span class="svc-line">A full marketing team&#x27;s monthly plan, content and reporting, running on one engine.</span></label><label class="svc" style="--c1:#2ee6d6;--c2:#4f8bff"><input type="radio" name="service" value="accounts" /><span class="svc-dept">Operations</span><b>Accounts Back-Office</b><span class="svc-line">Supplier bills read, matched, tax-checked and ready to pay, without manual entry.</span></label><label class="svc" style="--c1:#ff5c8a;--c2:#ff9a8b"><input type="radio" name="service" value="clinic" /><span class="svc-dept">Healthcare</span><b>Clinic Assistant</b><span class="svc-line">Doctors back with patients, while notes, reports and reminders take care of themselves.</span></label><label class="svc" style="--c1:#5cff9d;--c2:#2ee6d6"><input type="radio" name="service" value="hiring" /><span class="svc-dept">HR</span><b>Hiring Agent</b><span class="svc-line">From a thousand applications to a booked interview panel, in days instead of weeks.</span></label></div>
+        </fieldset>
+        <fieldset>
+          <legend><span>2</span>About you</legend>
+          <div class="field-grid">
+            <label>Your name<input name="name" required maxlength="80" autocomplete="name" /></label>
+            <label>Business name<input name="business_name" required maxlength="120" autocomplete="organization" /></label>
+            <label>Industry<input name="industry" maxlength="120" placeholder="Dental clinic, furniture store, logistics..." /></label>
+            <label>Country<input name="country" maxlength="60" autocomplete="country-name" /></label>
+            <label>WhatsApp number<input name="whatsapp" required type="tel" autocomplete="tel" placeholder="+1 415 555 0100" /></label>
+            <label>Language for your plan<select name="language"><option>English</option><option>Hindi</option><option>Hinglish</option><option>Spanish</option><option>Arabic</option><option>French</option><option>Portuguese</option></select></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><span>3</span>Your business and problem</legend>
+          <label>What does your business do?<textarea name="business_description" rows="3" maxlength="1000" placeholder="Who your customers are, what you sell, how they reach you."></textarea></label>
+          <label>What is the biggest problem you want solved?<textarea name="main_problem" required rows="3" maxlength="1000" placeholder="We get 80 WhatsApp messages a day and reply hours late, so customers buy elsewhere."></textarea></label>
+        </fieldset>
+        <fieldset>
+          <legend><span>4</span>Your numbers</legend>
+          <p class="hint">Rough numbers are fine. They are only used to estimate your savings and profit.</p>
+          <div class="field-grid three">
+            <label>Currency<select name="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>AED</option><option>SAR</option><option>AUD</option><option>CAD</option><option>SGD</option><option>ZAR</option><option>NGN</option><option>KES</option></select></label>
+            <label>Team size<input name="team_size" type="number" min="1" value="5" /></label>
+            <label>Customer enquiries a month<input name="monthly_inquiries" type="number" min="0" value="300" /></label>
+            <label>Average order value<input name="avg_order_value" type="number" min="0" value="2000" /></label>
+            <label>Hours a week your team spends on this work<input name="hours_per_week" type="number" min="0" value="20" /></label>
+            <label>Staff cost per hour<input name="hourly_cost" type="number" min="0" value="200" /></label>
+            <label>Enquiries that become customers (%)<input name="conversion_pct" type="number" min="0.1" max="100" step="0.1" value="10" /></label>
+            <label>Profit margin (%)<input name="margin_pct" type="number" min="1" max="100" value="30" /></label>
+          </div>
+        </fieldset>
+        <button class="btn plan-submit" type="submit">Build my plan</button>
+        <p class="form-note" id="plan-note" role="status"></p>
+      </form>
+
+      <div class="plan-loading" id="plan-loading" hidden>
+        <div class="loader" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p id="plan-loading-text">Understanding your business</p>
+      </div>
+
+      <div class="plan-result" id="plan-result" hidden></div>
+    </section>
+
+  </main>
+
+  <section class="cta-band">
+    <div class="cta-inner reveal">
+      <div>
+        <h2>Ready to put a department on autopilot?</h2>
+        <p>Call or WhatsApp us for a free process audit. We will show you exactly what can run on its own.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:+918930522312" class="btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>Call +91 89305 22312</a>
+        <a href="https://wa.me/918930522312" class="btn btn-ghost" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.8A8.5 8.5 0 1112 20.5a8.4 8.4 0 01-4.2-1.1L3 21z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 01-2.7-2.7l.8-1-1-2L9 8.5z"/></svg>WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span>AXIA</a>
+        <p>Department automation for growing businesses, anywhere in the world.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="sales.html">Sales Outreach Agent</a><a href="marketing.html">Campaign Engine</a><a href="accounts.html">Accounts Back-Office</a><a href="clinic.html">Clinic Assistant</a><a href="hiring.html">Hiring Agent</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="plan.html">Free plan</a><a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <a href="tel:+918930522312">+91 89305 22312</a>
+        <a href="https://wa.me/918930522312" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <p class="copy">&copy; <span id="year"></span> AXIA Automation Agency</p>
+  </footer>
+
+  <div class="float-actions" aria-label="Quick contact">
+    <a href="https://wa.me/918930522312" class="fab fab-wa" target="_blank" rel="noopener" aria-label="WhatsApp AXIA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.8A8.5 8.5 0 1112 20.5a8.4 8.4 0 01-4.2-1.1L3 21z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 01-2.7-2.7l.8-1-1-2L9 8.5z"/></svg><span>WhatsApp</span></a>
+    <a href="tel:+918930522312" class="fab fab-call" aria-label="Call AXIA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg><span>Call now</span></a>
+  </div>
+
+  <script type="module" src="main.js"></script>
+  <script type="module" src="plan.js"></script>
+</body>
+</html>
