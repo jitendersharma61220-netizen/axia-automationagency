@@ -4,7 +4,7 @@ Multi-page static site for AXIA Automation Agency. Plain HTML, CSS and JavaScrip
 
 ## Pages
 
-`index.html` (Home), `services.html`, one page per department engine (`sales.html`, `marketing.html`, `accounts.html`, `clinic.html`, `hiring.html`), `portfolio.html`, `about.html`, `contact.html`.
+`index.html` (Home), `services.html`, one page per department engine (`sales.html`, `marketing.html`, `accounts.html`, `clinic.html`, `hiring.html`), `portfolio.html`, `about.html`, `contact.html`, and `plan.html` (free plan from the proposal engine in `../engine`).
 
 ## Editing
 
@@ -18,6 +18,7 @@ python3 build.py
 and commit the regenerated `.html` files. `build.py` refuses to write a page that contains the word "AI" (brand rule).
 
 - `engine.js`: the 3D automation engine. Each `<canvas data-engine>` draws inputs, processing stages, a human approval stage and outputs, configured by its `data-flow` JSON.
+- `plan.js`: the free plan page. Calls the proposal engine at `ENGINE_URL` (set in `build.py`) and shows the concept, demo, savings, deck and WhatsApp message; falls back to WhatsApp when no engine answers.
 - `main.js`: menu, animations, portfolio filter and the contact form, which opens WhatsApp to `WHATSAPP_NUMBER` with the enquiry pre-filled.
 
 ## Run locally

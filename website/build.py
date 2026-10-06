@@ -20,6 +20,12 @@ PHONE = "+918930522312"
 PHONE_DISPLAY = "+91 89305 22312"
 WHATSAPP = "918930522312"
 
+# Where the proposal engine (engine/ in this repo) is hosted, for example
+# "https://axia-engine.onrender.com". Leave empty to use the same origin; if
+# no engine answers there, the plan form falls back to sending the details on
+# WhatsApp.
+ENGINE_URL = ""
+
 # ---------------------------------------------------------------- content
 
 DEPTS = [
@@ -189,7 +195,7 @@ HOME_FLOW = {
     "accent": "#2ee6d6",
 }
 
-NAV = [("index", "Home", "index.html"), ("services", "Services", "services.html"), ("portfolio", "Portfolio", "portfolio.html"), ("about", "About", "about.html"), ("contact", "Contact", "contact.html")]
+NAV = [("index", "Home", "index.html"), ("services", "Services", "services.html"), ("portfolio", "Portfolio", "portfolio.html"), ("about", "About", "about.html"), ("plan", "Free plan", "plan.html"), ("contact", "Contact", "contact.html")]
 
 # ---------------------------------------------------------------- icons
 
@@ -277,7 +283,7 @@ def layout(key, title, desc, body, engine=True):
       </div>
       <div>
         <h4>Company</h4>
-        <a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="plan.html">Free plan</a><a href="contact.html">Contact</a>
       </div>
       <div>
         <h4>Talk to us</h4>
@@ -363,7 +369,7 @@ def home():
         <h1>Your departments,<br /><span class="grad">on autopilot.</span></h1>
         <p class="lead">AXIA builds workflow engines that run the repetitive work of sales, marketing, accounts, clinics and hiring. Work flows in, gets checked, waits for your approval where it matters, and lands in your tools.</p>
         <div class="hero-cta">
-          <a href="contact.html" class="btn">Book a free process audit</a>
+          <a href="plan.html" class="btn">Get your free plan</a>
           <a href="tel:{PHONE}" class="btn btn-ghost">{PHONE_ICON}Call {PHONE_DISPLAY}</a>
         </div>
         <ul class="hero-tags"><li>WhatsApp first</li><li>Any language</li><li>Clients in any country</li><li>Human approval built in</li></ul>
@@ -477,7 +483,7 @@ def dept_page(d, idx):
         f'{d["name"]}',
         d["tagline"],
         flow_attr(d["flow"], d["c1"], d["c2"]),
-        f'<div class="hero-cta"><a href="contact.html" class="btn">Get a free audit</a><a href="tel:{PHONE}" class="btn btn-ghost">{PHONE_ICON}Call now</a></div>',
+        f'<div class="hero-cta"><a href="plan.html?service={d["slug"]}" class="btn">Get your free plan</a><a href="tel:{PHONE}" class="btn btn-ghost">{PHONE_ICON}Call now</a></div>',
     ) + f"""
     <section class="section" style="--c1:{d["c1"]};--c2:{d["c2"]}">
       <div class="split">
@@ -582,9 +588,91 @@ def contact():
 """
     return layout("contact", "Contact | AXIA", "Book a free process audit with AXIA. Call or WhatsApp +91 89305 22312.", body, engine=False)
 
+PLAN_SERVICES = [("whatsapp", "Customer chat", "WhatsApp Automation", "#25d366", "#2ee6d6", "Replies to every customer in seconds, day and night.")] + [
+    (d["slug"], d["dept"], d["name"], d["c1"], d["c2"], d["tagline"]) for d in DEPTS
+]
+
+CURRENCY_OPTIONS = ["USD", "EUR", "GBP", "INR", "AED", "SAR", "AUD", "CAD", "SGD", "ZAR", "NGN", "KES"]
+LANGUAGE_OPTIONS = ["English", "Hindi", "Hinglish", "Spanish", "Arabic", "French", "Portuguese"]
+
+
+def plan():
+    svc = "".join(
+        f'<label class="svc" style="--c1:{c1};--c2:{c2}"><input type="radio" name="service" value="{slug}"{" checked" if i == 0 else ""} />'
+        f'<span class="svc-dept">{esc(dept)}</span><b>{esc(name)}</b><span class="svc-line">{esc(line)}</span></label>'
+        for i, (slug, dept, name, c1, c2, line) in enumerate(PLAN_SERVICES)
+    )
+    cur = "".join(f"<option>{c}</option>" for c in CURRENCY_OPTIONS)
+    lang = "".join(f"<option>{l}</option>" for l in LANGUAGE_OPTIONS)
+    body = f"""    <section class="page-hero plan-hero">
+      <div class="page-hero-copy reveal">
+        <p class="eyebrow">Free automation plan</p>
+        <h1>See your business <span class="grad">run on autopilot.</span></h1>
+        <p class="lead">Pick a service and tell us about your business. In about a minute the AXIA engine builds your plan.</p>
+      </div>
+      <ol class="plan-gets reveal">
+        <li><b>Why you need it</b><span>The concept, explained around your own problem.</span></li>
+        <li><b>A live demo</b><span>Your business, your customers, the problem being solved in front of you.</span></li>
+        <li><b>Your pitch deck</b><span>Problem, solution, savings and rollout, ready to save as PDF.</span></li>
+        <li><b>On your WhatsApp</b><span>Your problem, the solution, your savings and your extra profit.</span></li>
+      </ol>
+    </section>
+
+    <section class="section plan-section">
+      <form id="plan-form" class="plan-form reveal" data-engine-url="{esc(ENGINE_URL)}" data-whatsapp="{WHATSAPP}" novalidate>
+        <fieldset>
+          <legend><span>1</span>Pick a service</legend>
+          <div class="svc-grid">{svc}</div>
+        </fieldset>
+        <fieldset>
+          <legend><span>2</span>About you</legend>
+          <div class="field-grid">
+            <label>Your name<input name="name" required maxlength="80" autocomplete="name" /></label>
+            <label>Business name<input name="business_name" required maxlength="120" autocomplete="organization" /></label>
+            <label>Industry<input name="industry" maxlength="120" placeholder="Dental clinic, furniture store, logistics..." /></label>
+            <label>Country<input name="country" maxlength="60" autocomplete="country-name" /></label>
+            <label>WhatsApp number<input name="whatsapp" required type="tel" autocomplete="tel" placeholder="+1 415 555 0100" /></label>
+            <label>Language for your plan<select name="language">{lang}</select></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><span>3</span>Your business and problem</legend>
+          <label>What does your business do?<textarea name="business_description" rows="3" maxlength="1000" placeholder="Who your customers are, what you sell, how they reach you."></textarea></label>
+          <label>What is the biggest problem you want solved?<textarea name="main_problem" required rows="3" maxlength="1000" placeholder="We get 80 WhatsApp messages a day and reply hours late, so customers buy elsewhere."></textarea></label>
+        </fieldset>
+        <fieldset>
+          <legend><span>4</span>Your numbers</legend>
+          <p class="hint">Rough numbers are fine. They are only used to estimate your savings and profit.</p>
+          <div class="field-grid three">
+            <label>Currency<select name="currency">{cur}</select></label>
+            <label>Team size<input name="team_size" type="number" min="1" value="5" /></label>
+            <label>Customer enquiries a month<input name="monthly_inquiries" type="number" min="0" value="300" /></label>
+            <label>Average order value<input name="avg_order_value" type="number" min="0" value="2000" /></label>
+            <label>Hours a week your team spends on this work<input name="hours_per_week" type="number" min="0" value="20" /></label>
+            <label>Staff cost per hour<input name="hourly_cost" type="number" min="0" value="200" /></label>
+            <label>Enquiries that become customers (%)<input name="conversion_pct" type="number" min="0.1" max="100" step="0.1" value="10" /></label>
+            <label>Profit margin (%)<input name="margin_pct" type="number" min="1" max="100" value="30" /></label>
+          </div>
+        </fieldset>
+        <button class="btn plan-submit" type="submit">Build my plan</button>
+        <p class="form-note" id="plan-note" role="status"></p>
+      </form>
+
+      <div class="plan-loading" id="plan-loading" hidden>
+        <div class="loader" aria-hidden="true"><span></span><span></span><span></span></div>
+        <p id="plan-loading-text">Understanding your business</p>
+      </div>
+
+      <div class="plan-result" id="plan-result" hidden></div>
+    </section>
+"""
+    return layout("plan", "Your free automation plan | AXIA", "Tell AXIA about your business and get a tailored automation plan: concept, live demo, pitch deck and savings on WhatsApp.", body, engine=False).replace(
+        '<script type="module" src="main.js"></script>', '<script type="module" src="main.js"></script>\n  <script type="module" src="plan.js"></script>'
+    )
+
 
 def main():
-    pages = {"index.html": home(), "services.html": services(), "portfolio.html": portfolio(), "about.html": about(), "contact.html": contact()}
+    pages = {"index.html": home(), "services.html": services(), "portfolio.html": portfolio(), "about.html": about(), "contact.html": contact(), "plan.html": plan()}
     for i, d in enumerate(DEPTS):
         pages[f'{d["slug"]}.html'] = dept_page(d, i)
     for name, content in pages.items():
