@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Accounts Back-Office | AXIA</title>
-  <meta name="description" content="Reads supplier bills, matches them to purchase orders, checks GST details, routes approvals and prepares your payables list." />
+  <meta name="description" content="Reads supplier bills, matches them to purchase orders, checks tax details, routes approvals and prepares your payables list." />
   <meta name="theme-color" content="#070a1a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,11 +33,11 @@
       <div class="page-hero-copy reveal">
         <p class="eyebrow">Operations engine</p>
         <h1>Accounts Back-Office</h1>
-        <p class="lead">Supplier bills read, matched, GST-checked and ready to pay, without manual entry.</p>
+        <p class="lead">Supplier bills read, matched, tax-checked and ready to pay, without manual entry.</p>
         <div class="hero-cta"><a href="contact.html" class="btn">Get a free audit</a><a href="tel:+918930522312" class="btn btn-ghost"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>Call now</a></div>
       </div>
       <div class="engine-frame reveal">
-        <canvas data-engine="flat" data-flow="{&quot;inputs&quot;: [&quot;Bills on WhatsApp&quot;, &quot;Email PDFs&quot;, &quot;Purchase orders&quot;], &quot;stages&quot;: [&quot;Read bill&quot;, &quot;Match PO&quot;, &quot;GST check&quot;, &quot;You approve&quot;, &quot;Schedule pay&quot;], &quot;approval&quot;: 3, &quot;outputs&quot;: [&quot;Tally&quot;, &quot;Payables list&quot;, &quot;Vendor query&quot;], &quot;color&quot;: &quot;#2ee6d6&quot;, &quot;accent&quot;: &quot;#4f8bff&quot;}" aria-hidden="true"></canvas>
+        <canvas data-engine="flat" data-flow="{&quot;inputs&quot;: [&quot;Bills on WhatsApp&quot;, &quot;Email PDFs&quot;, &quot;Purchase orders&quot;], &quot;stages&quot;: [&quot;Read bill&quot;, &quot;Match PO&quot;, &quot;Tax check&quot;, &quot;You approve&quot;, &quot;Schedule pay&quot;], &quot;approval&quot;: 3, &quot;outputs&quot;: [&quot;Accounting&quot;, &quot;Payables list&quot;, &quot;Vendor query&quot;], &quot;color&quot;: &quot;#2ee6d6&quot;, &quot;accent&quot;: &quot;#4f8bff&quot;}" aria-hidden="true"></canvas>
         <p class="engine-caption">Live view of the workflow engine</p>
       </div>
     </section>
@@ -47,13 +47,13 @@
         <div class="reveal">
           <p class="eyebrow">The problem</p>
           <h2>Where the hours go today</h2>
-          <p class="sub">Bills arrive as photos on WhatsApp, PDFs on email and paper at the gate. Someone types each one into Tally, checks it against the PO by hand and still misses GST mismatches and due dates.</p>
+          <p class="sub">Bills arrive as photos on WhatsApp, PDFs on email and paper at the gate. Someone types each one into the accounting software, checks it against the PO by hand and still misses tax mismatches and due dates.</p>
           <p class="eyebrow tools-head">Works with</p>
-          <ul class="tool-list"><li>Tally</li><li>Zoho Books</li><li>WhatsApp Business</li><li>Gmail</li><li>Google Sheets</li><li>Excel</li></ul>
+          <ul class="tool-list"><li>Tally</li><li>QuickBooks</li><li>Xero</li><li>Zoho Books</li><li>WhatsApp Business</li><li>Gmail</li><li>Excel</li></ul>
         </div>
         <div>
           <p class="eyebrow reveal">The engine, stage by stage</p>
-          <ol class="stage-list"><li class="reveal"><span class="num">01</span><div><h3>Read bill</h3><p>Reads photos, scans and PDFs and pulls out vendor, GSTIN, items, rates, tax and totals.</p></div></li><li class="reveal"><span class="num">02</span><div><h3>Match PO</h3><p>Three-way matches each bill against the purchase order and goods received.</p></div></li><li class="reveal"><span class="num">03</span><div><h3>GST check</h3><p>Validates the GSTIN, recomputes the arithmetic and checks CGST/SGST versus IGST.</p></div></li><li class="reveal is-approval"><span class="num">04</span><div><h3>You approve</h3><p>Clean small bills can pass automatically; anything unusual waits for your approver with a clear note.</p></div></li><li class="reveal"><span class="num">05</span><div><h3>Schedule pay</h3><p>Updates the payables list, drafts vendor queries for mismatches and exports the purchase register.</p></div></li></ol>
+          <ol class="stage-list"><li class="reveal"><span class="num">01</span><div><h3>Read bill</h3><p>Reads photos, scans and PDFs and pulls out vendor, tax ID, items, rates, tax and totals.</p></div></li><li class="reveal"><span class="num">02</span><div><h3>Match PO</h3><p>Three-way matches each bill against the purchase order and goods received.</p></div></li><li class="reveal"><span class="num">03</span><div><h3>Tax check</h3><p>Validates the tax ID, recomputes the arithmetic and checks the tax split, whether GST, VAT or sales tax.</p></div></li><li class="reveal is-approval"><span class="num">04</span><div><h3>You approve</h3><p>Clean small bills can pass automatically; anything unusual waits for your approver with a clear note.</p></div></li><li class="reveal"><span class="num">05</span><div><h3>Schedule pay</h3><p>Updates the payables list, drafts vendor queries for mismatches and exports the purchase register.</p></div></li></ol>
         </div>
       </div>
     </section>
@@ -98,7 +98,7 @@
     <div class="footer-grid">
       <div>
         <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span>AXIA</a>
-        <p>Department automation for Indian businesses.</p>
+        <p>Department automation for growing businesses, anywhere in the world.</p>
       </div>
       <div>
         <h4>Services</h4>
