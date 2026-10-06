@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | AXIA</title>
+  <meta name="description" content="Sample AXIA automation engagements across sales, marketing, accounts, clinics and hiring." />
+  <meta name="theme-color" content="#070a1a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="index.html" aria-label="AXIA home"><span class="logo-mark" aria-hidden="true"></span>AXIA</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="index.html">Home</a>
+      <div class="has-sub"><a href="services.html">Services</a><div class="sub"><a href="sales.html"><span class="dot" style="--c:#ff8a3d"></span>Sales Outreach Agent</a><a href="marketing.html"><span class="dot" style="--c:#7b5cff"></span>Campaign Engine</a><a href="accounts.html"><span class="dot" style="--c:#2ee6d6"></span>Accounts Back-Office</a><a href="clinic.html"><span class="dot" style="--c:#ff5c8a"></span>Clinic Assistant</a><a href="hiring.html"><span class="dot" style="--c:#5cff9d"></span>Hiring Agent</a></div></div>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+918930522312" class="btn btn-small btn-call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg><span>Call now</span></a>
+    </nav>
+    <div class="nav-right">
+      <a href="tel:+918930522312" class="call-chip" aria-label="Call AXIA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-copy reveal">
+        <p class="eyebrow">Portfolio</p>
+        <h1>Engines at work in<br /><span class="grad">Indian businesses.</span></h1>
+        <p class="lead">Sample engagements showing how each AXIA engine fits a real business. Figures are illustrative targets for a typical setup.</p>
+        
+      </div>
+      <div class="engine-frame reveal">
+        <canvas data-engine="flat" data-flow="{&quot;inputs&quot;: [&quot;WhatsApp&quot;, &quot;Email&quot;, &quot;Forms &amp; sheets&quot;], &quot;stages&quot;: [&quot;Capture&quot;, &quot;Understand&quot;, &quot;Check rules&quot;, &quot;You approve&quot;, &quot;Act&quot;], &quot;approval&quot;: 3, &quot;outputs&quot;: [&quot;CRM&quot;, &quot;Tally&quot;, &quot;Calendar&quot;], &quot;color&quot;: &quot;#7b5cff&quot;, &quot;accent&quot;: &quot;#2ee6d6&quot;}" aria-hidden="true"></canvas>
+        <p class="engine-caption">Live view of the workflow engine</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="filters reveal" role="tablist" aria-label="Filter portfolio"><button class="chip active" data-filter="all">All</button><button class="chip" data-filter="sales">Sales</button><button class="chip" data-filter="marketing">Marketing</button><button class="chip" data-filter="accounts">Operations</button><button class="chip" data-filter="clinic">Healthcare</button><button class="chip" data-filter="hiring">HR</button></div>
+      <div class="work-grid">
+        <article class="work reveal" data-cat="sales">
+          <div class="work-visual" style="--c1:#ff8a3d;--c2:#ffcf5c"><span class="work-shape s1"></span><span class="work-label">Sales Outreach Agent</span></div>
+          <div class="work-body">
+            <p class="work-meta">B2B software company · Pune</p>
+            <h3>From 40 cold emails a day to 300 researched ones</h3>
+            <p>The sales team spent mornings finding contacts and writing emails. The agent now researches each company, writes a personal first message and sorts every reply into interested, later or not now.</p>
+            <div class="metrics"><div><b>7x</b><span>outreach volume</span></div><div><b>3 hrs</b><span>saved per rep daily</span></div><div><b>2x</b><span>meetings booked</span></div></div>
+            <a class="text-link" href="sales.html">See how the Sales Outreach Agent works &rarr;</a>
+          </div>
+        </article>
+        <article class="work reveal" data-cat="marketing">
+          <div class="work-visual" style="--c1:#7b5cff;--c2:#c084fc"><span class="work-shape s2"></span><span class="work-label">Campaign Engine</span></div>
+          <div class="work-body">
+            <p class="work-meta">D2C skincare brand · Jaipur</p>
+            <h3>A full month of festive content, planned in one afternoon</h3>
+            <p>For the Diwali season the engine built the campaign calendar, wrote posts, reels scripts, WhatsApp broadcasts and ad copy, then flagged which creatives to scale after week one.</p>
+            <div class="metrics"><div><b>120+</b><span>pieces per month</span></div><div><b>5</b><span>channels covered</span></div><div><b>1</b><span>approval round</span></div></div>
+            <a class="text-link" href="marketing.html">See how the Campaign Engine works &rarr;</a>
+          </div>
+        </article>
+        <article class="work reveal" data-cat="accounts">
+          <div class="work-visual" style="--c1:#2ee6d6;--c2:#4f8bff"><span class="work-shape s3"></span><span class="work-label">Accounts Back-Office</span></div>
+          <div class="work-body">
+            <p class="work-meta">FMCG distributor · Ludhiana</p>
+            <h3>800 supplier bills a month, matched and GST-checked</h3>
+            <p>Bills arrived as photos and PDFs on WhatsApp and email. The system reads them, matches each to its purchase order, flags GST mismatches and sends the payables list for one-click approval.</p>
+            <div class="metrics"><div><b>90%</b><span>bills auto-matched</span></div><div><b>0</b><span>missed due dates</span></div><div><b>4 days</b><span>faster month close</span></div></div>
+            <a class="text-link" href="accounts.html">See how the Accounts Back-Office works &rarr;</a>
+          </div>
+        </article>
+        <article class="work reveal" data-cat="clinic">
+          <div class="work-visual" style="--c1:#ff5c8a;--c2:#ff9a8b"><span class="work-shape s4"></span><span class="work-label">Clinic Assistant</span></div>
+          <div class="work-body">
+            <p class="work-meta">Multi-speciality clinic · Indore</p>
+            <h3>Doctors back to patients, not paperwork</h3>
+            <p>Consultation notes are drafted for the doctor to review and sign. Patients get their lab reports explained in Hindi or English, plus reminders for follow-ups and repeat tests.</p>
+            <div class="metrics"><div><b>2 hrs</b><span>saved per doctor daily</span></div><div><b>100%</b><span>notes doctor-approved</span></div><div><b>35%</b><span>fewer missed follow-ups</span></div></div>
+            <a class="text-link" href="clinic.html">See how the Clinic Assistant works &rarr;</a>
+          </div>
+        </article>
+        <article class="work reveal" data-cat="hiring">
+          <div class="work-visual" style="--c1:#5cff9d;--c2:#2ee6d6"><span class="work-shape s5"></span><span class="work-label">Hiring Agent</span></div>
+          <div class="work-body">
+            <p class="work-meta">Staffing firm · Gurugram</p>
+            <h3>1,000 applications screened in a weekend</h3>
+            <p>For a bulk hiring drive, the agent ranked every resume, ran a short WhatsApp screening with each shortlisted candidate and filled the interview panel&#x27;s calendar for the week.</p>
+            <div class="metrics"><div><b>10x</b><span>faster shortlisting</span></div><div><b>48 hrs</b><span>apply to interview</span></div><div><b>60%</b><span>less recruiter time</span></div></div>
+            <a class="text-link" href="hiring.html">See how the Hiring Agent works &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="cta-band">
+    <div class="cta-inner reveal">
+      <div>
+        <h2>Ready to put a department on autopilot?</h2>
+        <p>Call or WhatsApp us for a free process audit. We will show you exactly what can run on its own.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:+918930522312" class="btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg>Call +91 89305 22312</a>
+        <a href="https://wa.me/918930522312" class="btn btn-ghost" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.8A8.5 8.5 0 1112 20.5a8.4 8.4 0 01-4.2-1.1L3 21z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 01-2.7-2.7l.8-1-1-2L9 8.5z"/></svg>WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span>AXIA</a>
+        <p>Department automation for Indian businesses.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="sales.html">Sales Outreach Agent</a><a href="marketing.html">Campaign Engine</a><a href="accounts.html">Accounts Back-Office</a><a href="clinic.html">Clinic Assistant</a><a href="hiring.html">Hiring Agent</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <a href="tel:+918930522312">+91 89305 22312</a>
+        <a href="https://wa.me/918930522312" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <p class="copy">&copy; <span id="year"></span> AXIA Automation Agency</p>
+  </footer>
+
+  <div class="float-actions" aria-label="Quick contact">
+    <a href="https://wa.me/918930522312" class="fab fab-wa" target="_blank" rel="noopener" aria-label="WhatsApp AXIA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.6-4.8A8.5 8.5 0 1112 20.5a8.4 8.4 0 01-4.2-1.1L3 21z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a5 5 0 01-2.7-2.7l.8-1-1-2L9 8.5z"/></svg><span>WhatsApp</span></a>
+    <a href="tel:+918930522312" class="fab fab-call" aria-label="Call AXIA"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg><span>Call now</span></a>
+  </div>
+
+  <script type="module" src="engine.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
